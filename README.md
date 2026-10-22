@@ -5,11 +5,13 @@ The site for **Crossroads: A Transportation Equity and Justice Convening**, serv
 It is a plain static site: no build step and no dependencies.
 
 ```
-index.html            the whole site (one scrolling page)
+index.html            the home page (one scrolling page)
+proceedings.html      the 2026 conference report
 assets/css/styles.css styles
 assets/js/main.js     mobile menu and click-to-play videos
 assets/img/           logos, banner photo, site icon (mark.svg)
 tools/serve.ps1       local preview server (Windows PowerShell)
+tools/build-proceedings.ps1  converts the proceedings Word file into proceedings.html
 ```
 
 ## Editing content
@@ -22,6 +24,16 @@ Everything is in `index.html`, split into commented sections (`HERO`, `WHAT'S NE
 - `stop--terminal` marks the last stop
 
 **Sponsors:** add an `<li>` to `sponsor-grid` and put the logo in `assets/img/`.
+
+## Updating the proceedings
+
+The text of `proceedings.html` is generated from the Word file *Crossroads Convening Summary.docx*. Don't edit the report text in the HTML. Instead, edit the Word file, download it as `.docx`, and run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\build-proceedings.ps1 -Docx "path\to\Crossroads Convening Summary.docx"
+```
+
+The script replaces only the content between the `BEGIN`/`END` comments in `proceedings.html` (contents list, report body, credits), so the rest of the page can be edited by hand. It maps Word's Heading 1/2/3 styles to chapters, sections and sub-headings; keeps bold, italics, links, bulleted and numbered lists, and footnotes; and turns the front matter (organizing committee, notetakers, acknowledgments) into the "About this report" section.
 
 ## Previewing locally
 
