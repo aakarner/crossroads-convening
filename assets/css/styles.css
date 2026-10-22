@@ -177,12 +177,15 @@ p { margin: 0 0 1em; }
   color: var(--yellow); margin-bottom: 14px;
 }
 
+.hero__text { container-type: inline-size; min-width: 0; }
+
+/* Sized to the column so "Crossroads" always stays on one line */
 .hero h1 {
-  font-size: clamp(3.6rem, 11vw, 8.5rem);
+  font-size: min(9rem, 17.5cqi);
   font-weight: 900; font-stretch: 72%;
   text-transform: uppercase; line-height: 0.88; letter-spacing: -0.02em;
+  white-space: nowrap;
   margin-bottom: 24px;
-  hyphens: manual;
 }
 
 .hero__lede { font-size: clamp(1.1rem, 2vw, 1.3rem); max-width: 34em; color: #e3e5ea; }

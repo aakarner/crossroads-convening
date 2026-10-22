@@ -23,8 +23,10 @@ while ($listener.IsListening) {
   if ($file.StartsWith($root) -and (Test-Path $file -PathType Leaf)) {
     $ext = [IO.Path]::GetExtension($file).ToLower()
     $res.ContentType = if ($types[$ext]) { $types[$ext] } else { "application/octet-stream" }
+    $res.Headers.Add("Cache-Control", "no-store")
     $bytes = [IO.File]::ReadAllBytes($file)
-    $res.OutputStream.Write($bytes, 0, $bytes.Length)
+    $res.ContentLength64 = $bytes.Length
+    if ($ctx.Request.HttpMethod -ne "HEAD") { $res.OutputStream.Write($bytes, 0, $bytes.Length) }
   } else {
     $res.StatusCode = 404
   }
