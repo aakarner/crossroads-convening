@@ -5,7 +5,8 @@ The site for **Crossroads: A Transportation Equity and Justice Convening**, serv
 It is a plain static site: no build step and no dependencies.
 
 ```
-index.html            the home page (one scrolling page)
+index.html            home page: objective and goals, who we welcome, what's next, stay in touch
+2026.html             the 2026 Convening: overview, recordings, program, sponsors
 proceedings.html      the 2026 conference report
 assets/css/styles.css styles
 assets/js/main.js     mobile menu and click-to-play videos
@@ -16,14 +17,14 @@ tools/build-proceedings.ps1  converts the proceedings Word file into proceedings
 
 ## Editing content
 
-Everything is in `index.html`, split into commented sections (`HERO`, `WHAT'S NEXT / TIMELINE`, `ABOUT`, `2026 ARCHIVE`, `SPONSORS`, `STAY IN TOUCH`).
+Each page is split into commented sections. `index.html` has `HERO`, `ABOUT / OBJECTIVE`, `WHO WE WELCOME / WHO WE ARE`, `WHAT'S NEXT / TIMELINE`, `2026 CONVENING` and `STAY IN TOUCH`; `2026.html` has `OVERVIEW`, `RECORDINGS & PROGRAM` and `SPONSORS`.
 
-**Timeline:** each stop is an `<li class="stop">` in the `route` list.
+**Timeline:** each stop is an `<li class="stop">` in the `route` list on the home page. Add or remove stops freely; the line resizes to fit.
 - `stop--done` marks a past stop (filled dot)
 - `stop--now` marks the current stop (yellow, pulsing); stops after it show a dashed track
 - `stop--terminal` marks the last stop
 
-**Sponsors:** add an `<li>` to `sponsor-grid` and put the logo in `assets/img/`.
+**Sponsors:** add an `<li>` to `sponsor-grid` in `2026.html` and put the logo in `assets/img/`.
 
 ## Updating the proceedings
 
