@@ -242,32 +242,50 @@ p { margin: 0 0 1em; }
 
 /* ---------- Goals ---------- */
 
-.goals {
-  list-style: none; counter-reset: goal; margin: 20px 0 0; padding: 0;
-  display: grid; grid-template-columns: 1fr; gap: 16px;
+/* Each theme is a transit line; its goals are the stops */
+.goal-lines { display: grid; gap: 36px; margin-top: 28px; }
+.goal-line {
+  --line: var(--red);
+  --dot: 28px;
+  display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: start;
 }
-/* seven goals: the first card spans two columns so the rows come out even */
-@media (min-width: 640px) {
-  .goals { grid-template-columns: repeat(2, 1fr); }
-  .goals li:first-child { grid-column: span 2; }
+.goal-line--yellow { --line: var(--yellow); }
+.goal-line--green { --line: var(--green); }
+.goal-line--blue { --line: var(--blue); }
+
+.goal-line__name {
+  display: flex; align-items: center; gap: 12px; margin: 0; padding-top: 2px;
+  font-family: var(--display); font-weight: 850; font-stretch: 85%;
+  font-size: 1.35rem; line-height: 1.05; text-transform: uppercase; letter-spacing: 0.01em;
 }
-@media (min-width: 1000px) {
-  .goals { grid-template-columns: repeat(4, 1fr); }
+.goal-line__name::before {
+  content: ""; flex: none; width: 24px; height: 24px; border-radius: 7px; background: var(--line);
 }
-.goals li:first-child { font-size: 1.2rem; }
-.goals li {
-  counter-increment: goal; position: relative;
-  background: var(--white); border-radius: var(--radius); padding: 56px 22px 22px;
-  border-top: 8px solid var(--red); font-size: 1.05rem; line-height: 1.5;
+
+.goal-line ul {
+  list-style: none; margin: 0; padding: calc(var(--dot) + 18px) 0 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px;
+  position: relative;
 }
-.goals li:nth-child(4n+2) { border-top-color: var(--yellow); }
-.goals li:nth-child(4n+3) { border-top-color: var(--green); }
-.goals li:nth-child(4n) { border-top-color: var(--blue); }
-.goals li::before {
-  content: counter(goal); position: absolute; left: 22px; top: 16px;
-  display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-  border: 5px solid var(--ink); box-sizing: border-box;
-  font-family: var(--display); font-weight: 850; font-size: 0.8rem; line-height: 1;
+.goal-line ul::before {
+  content: ""; position: absolute; left: 0; right: 0; top: calc((var(--dot) - 10px) / 2);
+  height: 10px; border-radius: 999px; background: var(--line);
+}
+.goal-line li { position: relative; font-size: 1.05rem; line-height: 1.5; max-width: 34em; }
+.goal-line li::before {
+  content: ""; position: absolute; left: 0; top: calc(-1 * (var(--dot) + 18px));
+  width: var(--dot); height: var(--dot); border-radius: 50%;
+  background: var(--white); border: 6px solid var(--ink); box-sizing: border-box;
+}
+
+@media (max-width: 760px) {
+  .goal-lines { gap: 28px; }
+  .goal-line { grid-template-columns: 1fr; gap: 14px; }
+  .goal-line ul { grid-template-columns: 1fr; gap: 20px; padding: 0 0 0 calc(var(--dot) + 18px); }
+  .goal-line ul::before {
+    left: calc((var(--dot) - 10px) / 2); right: auto; top: 4px; bottom: 4px; width: 10px; height: auto;
+  }
+  .goal-line li::before { left: calc(-1 * (var(--dot) + 18px)); top: 0; }
 }
 
 /* ---------- People ---------- */
