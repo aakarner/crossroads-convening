@@ -338,6 +338,47 @@ p { margin: 0 0 1em; }
 .stats li:nth-child(1) .stats__num { color: var(--yellow); }
 .stats li:nth-child(3) .stats__num { color: #5fd18f; }
 
+/* ---------- Photo gallery ---------- */
+
+.gallery {
+  list-style: none; margin: 32px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.gallery__item { aspect-ratio: 3 / 2; border-radius: 10px; overflow: hidden; background: var(--asphalt-2); }
+.gallery__item--wide { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+.gallery__item a { display: block; width: 100%; height: 100%; }
+.gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease, opacity 0.2s ease; }
+.gallery__item a:hover img { transform: scale(1.04); }
+@media (max-width: 860px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery__item--wide { grid-row: auto; aspect-ratio: 3 / 2; }
+}
+
+.lightbox {
+  width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 56px 16px 24px;
+  border: 0; background: rgba(10, 11, 14, 0.94); color: var(--white);
+  display: none; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+}
+.lightbox[open] { display: flex; }
+.lightbox::backdrop { background: transparent; }
+.lightbox__img { max-width: min(1600px, 100%); max-height: calc(100vh - 140px); width: auto; height: auto; border-radius: 8px; }
+.lightbox__caption { margin: 0; color: var(--muted-dark); text-align: center; max-width: 60ch; }
+.lightbox__btn {
+  position: absolute; display: grid; place-items: center; width: 48px; height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.35); border-radius: 50%; background: rgba(21, 23, 28, 0.7);
+  color: var(--white); font-size: 1.8rem; line-height: 1; cursor: pointer;
+}
+.lightbox__btn:hover { border-color: var(--white); }
+.lightbox__btn--close { top: 12px; right: 12px; }
+.lightbox__btn--prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox__btn--next { right: 12px; top: 50%; transform: translateY(-50%); }
+@media (max-width: 600px) {
+  .lightbox__btn--prev, .lightbox__btn--next { top: auto; bottom: 16px; transform: none; }
+  .lightbox__btn--prev { left: calc(50% - 60px); }
+  .lightbox__btn--next { right: calc(50% - 60px); }
+  .lightbox { padding-bottom: 80px; }
+}
+
 /* ---------- Timeline (route) ---------- */
 
 .route {

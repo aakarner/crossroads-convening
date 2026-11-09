@@ -43,6 +43,7 @@
         <p class="doc-hero__meta">January 15, 2026 &middot; Martin Luther King Jr. Memorial Library, Washington, D.C.</p>
         <nav class="subnav" aria-label="On this page">
           <a href="#overview">Overview</a>
+          <a href="#photos">Photos</a>
           <a href="proceedings.html">Proceedings</a>
           <a href="#recordings">Recordings</a>
           <a href="#program">Program</a>
@@ -78,6 +79,33 @@
         </div>
       </div>
     </section>
+
+    <!-- PHOTOS: add a photo by putting name.jpg (1600px wide) and name-sm.jpg (800px wide) in assets/img/photos/ and copying a <li> below -->
+    <section class="section section--dark" id="photos" aria-labelledby="photos-title">
+      <div class="wrap">
+        <p class="kicker kicker--yellow">Photos</p>
+        <h2 id="photos-title">Scenes from the day</h2>
+        <ul class="gallery">
+          <li class="gallery__item gallery__item--wide"><a href="assets/img/photos/auditorium.jpg"><img src="assets/img/photos/auditorium-sm.jpg" srcset="assets/img/photos/auditorium-sm.jpg 800w, assets/img/photos/auditorium.jpg 1600w" sizes="(max-width: 860px) 100vw, 50vw" alt="Attendees seated in the auditorium for a session" width="800" height="533" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/panel.jpg"><img src="assets/img/photos/panel-sm.jpg" srcset="assets/img/photos/panel-sm.jpg 800w, assets/img/photos/panel.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="Four panelists seated at a table at the front of a session" width="800" height="533" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/lunch.jpg"><img src="assets/img/photos/lunch-sm.jpg" srcset="assets/img/photos/lunch-sm.jpg 800w, assets/img/photos/lunch.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="A full hall of attendees talking over lunch at round tables" width="800" height="600" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/audience-question.jpg"><img src="assets/img/photos/audience-question-sm.jpg" srcset="assets/img/photos/audience-question-sm.jpg 800w, assets/img/photos/audience-question.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="A participant stands to speak during a session" width="800" height="533" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/posters.jpg"><img src="assets/img/photos/posters-sm.jpg" srcset="assets/img/photos/posters-sm.jpg 800w, assets/img/photos/posters.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="Attendees browsing research posters along a hallway" width="800" height="600" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/map-presentation.jpg"><img src="assets/img/photos/map-presentation-sm.jpg" srcset="assets/img/photos/map-presentation-sm.jpg 800w, assets/img/photos/map-presentation.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="A presenter speaking next to a screen showing a map" width="800" height="533" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/auditorium-panel.jpg"><img src="assets/img/photos/auditorium-panel-sm.jpg" srcset="assets/img/photos/auditorium-panel-sm.jpg 800w, assets/img/photos/auditorium-panel.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="A panel seated on the auditorium stage" width="800" height="533" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/breakout.jpg"><img src="assets/img/photos/breakout-sm.jpg" srcset="assets/img/photos/breakout-sm.jpg 800w, assets/img/photos/breakout.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="A breakout session in a room with large windows" width="800" height="600" loading="lazy"></a></li>
+          <li class="gallery__item"><a href="assets/img/photos/reception.jpg"><img src="assets/img/photos/reception-sm.jpg" srcset="assets/img/photos/reception-sm.jpg 800w, assets/img/photos/reception.jpg 1600w" sizes="(max-width: 860px) 50vw, 25vw" alt="Attendees talking at an evening gathering after the convening" width="800" height="600" loading="lazy"></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <dialog class="lightbox" aria-label="Photo viewer">
+      <img class="lightbox__img" alt="">
+      <p class="lightbox__caption"></p>
+      <button class="lightbox__btn lightbox__btn--prev" type="button" aria-label="Previous photo">&#8249;</button>
+      <button class="lightbox__btn lightbox__btn--next" type="button" aria-label="Next photo">&#8250;</button>
+      <button class="lightbox__btn lightbox__btn--close" type="button" aria-label="Close">&times;</button>
+    </dialog>
 
     <!-- RECORDINGS & PROGRAM -->
     <section class="section section--white" id="recordings" aria-labelledby="recordings-title">

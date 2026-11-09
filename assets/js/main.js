@@ -54,6 +54,39 @@ if (toc) {
   window.addEventListener("scroll", setActive, { passive: true });
 }
 
+// Photo gallery: open photos full size in a viewer, with arrow keys to move between them
+const lightbox = document.querySelector(".lightbox");
+if (lightbox) {
+  const items = [...document.querySelectorAll(".gallery__item a")];
+  const img = lightbox.querySelector(".lightbox__img");
+  const caption = lightbox.querySelector(".lightbox__caption");
+  let index = 0;
+
+  const show = (i) => {
+    index = (i + items.length) % items.length;
+    const thumb = items[index].querySelector("img");
+    img.src = items[index].href;
+    img.alt = thumb.alt;
+    caption.textContent = `${thumb.alt} (${index + 1} of ${items.length})`;
+  };
+
+  items.forEach((a, i) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      show(i);
+      lightbox.showModal();
+    });
+  });
+  lightbox.querySelector(".lightbox__btn--prev").addEventListener("click", () => show(index - 1));
+  lightbox.querySelector(".lightbox__btn--next").addEventListener("click", () => show(index + 1));
+  lightbox.querySelector(".lightbox__btn--close").addEventListener("click", () => lightbox.close());
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.close(); });
+  lightbox.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
+}
+
 // Load YouTube players only when clicked (keeps the page fast and avoids tracking until then)
 document.querySelectorAll(".yt").forEach((el) => {
   el.querySelector(".yt__link").addEventListener("click", (e) => {
