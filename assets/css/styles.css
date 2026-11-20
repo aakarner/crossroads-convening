@@ -290,6 +290,13 @@ p { margin: 0 0 1em; }
 
 /* ---------- People ---------- */
 
+.prose--lead p { font-size: 1.15rem; line-height: 1.7; }
+
+.organizers { margin-top: clamp(48px, 6vw, 72px); }
+.organizers h3 { font-size: 1.6rem; }
+.organizers .people { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); column-gap: 40px; }
+.disclaimer { font-size: 0.9rem; color: var(--muted-dark); font-style: italic; }
+
 .people { list-style: none; padding: 0; margin: 0 0 1.4em; }
 .people li { padding: 7px 0; border-bottom: 1px solid #2f333c; font-weight: 600; color: var(--white); }
 .people span { font-weight: 400; color: var(--muted-dark); }
@@ -540,6 +547,7 @@ a.sponsor-logo:hover { transform: translateY(-3px); }
 .footer p { margin: 0; }
 .footer a { color: var(--white); }
 .brand--footer { color: var(--white); font-size: 1rem; }
+.footer__disclaimer { flex-basis: 100%; font-size: 0.85rem; padding-top: 16px; border-top: 1px solid #2b2f37; }
 
 /* ---------- Proceedings page ---------- */
 
